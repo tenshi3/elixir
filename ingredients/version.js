@@ -20,7 +20,8 @@ var parsePath = require('parse-filepath');
 
 elixir.extend('version', function(src, buildDir) {
     buildTask(src, buildDir);
-
+    
+    src = utilities.prefixDirToFiles('public', src);
     this.registerWatcher('version', src);
 
     return this.queueTask('version');
